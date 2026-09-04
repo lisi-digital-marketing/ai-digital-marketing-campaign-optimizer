@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
+import joblib
 st.set_page_config(
     page_title="AI Digital Marketing Campaign Optimizer",
     page_icon="🤖",
@@ -16,9 +17,7 @@ st.write("AI-powered campaign prediction, ROI estimation and recommendation syst
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Load model and data
-with open(f"{PROJECT_DIR}/model.pkl", "rb") as f:
-    model = pickle.load(f)
-
+model = joblib.load(f"{PROJECT_DIR}/model.pkl")
 with open(f"{PROJECT_DIR}/model_columns.pkl", "rb") as f:
     model_columns = pickle.load(f)
 
