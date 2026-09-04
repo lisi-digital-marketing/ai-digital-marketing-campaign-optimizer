@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 import os
 import joblib
 st.set_page_config(
@@ -16,14 +15,22 @@ st.write("AI-powered campaign prediction, ROI estimation and recommendation syst
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Load model and data
-model = joblib.load(f"{PROJECT_DIR}/model.pkl")
-import joblib
+# Load model
+model = joblib.load(
+    os.path.join(PROJECT_DIR, "model.pkl")
+)
 
-model = joblib.load(f"{PROJECT_DIR}/model.pkl")
+# Load model columns
+model_columns = joblib.load(
+    os.path.join(PROJECT_DIR, "model_columns.pkl")
+)
 
+# Load dataset
 df = pd.read_csv(
-    f"{PROJECT_DIR}/AI_Digital_Marketing_Campaign_Dataset.csv"
+    os.path.join(
+        PROJECT_DIR,
+        "AI_Digital_Marketing_Campaign_Dataset.csv"
+    )
 )
 
 st.sidebar.header("Campaign Information")
