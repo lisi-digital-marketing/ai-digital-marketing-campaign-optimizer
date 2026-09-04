@@ -18,8 +18,9 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Load model and data
 model = joblib.load(f"{PROJECT_DIR}/model.pkl")
-with open(f"{PROJECT_DIR}/model_columns.pkl", "rb") as f:
-    model_columns = pickle.load(f)
+import joblib
+
+model = joblib.load(f"{PROJECT_DIR}/model.pkl")
 
 df = pd.read_csv(
     f"{PROJECT_DIR}/AI_Digital_Marketing_Campaign_Dataset.csv"
