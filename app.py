@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-
+import os
 st.set_page_config(
     page_title="AI Digital Marketing Campaign Optimizer",
     page_icon="🤖",
@@ -13,7 +13,7 @@ st.set_page_config(
 st.title("🤖 AI Digital Marketing Campaign Optimizer")
 st.write("AI-powered campaign prediction, ROI estimation and recommendation system")
 
-PROJECT_DIR = "/content/drive/MyDrive/AI_Digital_Marketing_Project"
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Load model and data
 with open(f"{PROJECT_DIR}/model.pkl", "rb") as f:
